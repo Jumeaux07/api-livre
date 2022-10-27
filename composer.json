@@ -6,6 +6,8 @@
     "license": "MIT",
     "require": {
         "php": "^8.0.2",
+        "cloudinary-labs/cloudinary-laravel": "^2.0",
+        "darkaonline/l5-swagger": "^8.4",
         "guzzlehttp/guzzle": "^7.2",
         "hesto/multi-auth": "^2.0",
         "laravel/framework": "^9.19",

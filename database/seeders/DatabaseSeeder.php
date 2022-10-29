@@ -9,7 +9,7 @@ use Database\Seeders\UserSeeder;
 use Database\Seeders\AdminSeeder;
 use Database\Seeders\DossierSeeder;
 use Database\Seeders\MatiereSeeder;
-use Database\Seeders\UserMatiereSeeder;
+use Database\Seeders\MatiereUserSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -26,7 +26,7 @@ class DatabaseSeeder extends Seeder
             MatiereSeeder::class,
             DossierSeeder::class,
             LivreSeeder::class,
-            UserMatiereSeeder::class
+            MatiereUserSeeder::class
         ]);
     }
 }

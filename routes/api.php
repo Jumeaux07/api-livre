@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\API\DossierController;
+use App\Http\Controllers\API\LivreController;
+use App\Http\Controllers\API\MatiereController;
 use App\Http\Controllers\API\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -17,3 +20,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::post('login_user',[UserController::class,'login_user']);
 Route::resource('/users',UserController::class);
+Route::resource('/matieres',MatiereController::class);
+Route::resource('/dossiers',DossierController::class);
+Route::resource('/livres', LivreController::class);

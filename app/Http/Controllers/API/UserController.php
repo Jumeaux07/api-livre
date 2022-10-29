@@ -109,7 +109,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::all();
+        $users = User::with('livres','dossiers','matieres')->get();
         return response()->json([
             'users' => $users,
             'status' => 200
@@ -245,7 +245,7 @@ class UserController extends Controller
      */
     /**
      * @OA\Get(
-     *      path="/api/users/2",
+     *      path="/api/users/{id}",
      *      operationId="users_one",
      *      tags={"users"},
      *      summary="Atteindre un utlisateur",
@@ -255,7 +255,7 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        $user = User::find($id);
+        $user = User::where('id',$id)->with('livres','dossiers','matieres')->first();
         if(!$user){
             return response()->json([
                 'message' => "Utilisateur non trouvé ou inexistant",
@@ -289,7 +289,7 @@ class UserController extends Controller
      */
     /**
      * @OA\Put(
-     *      path="/api/users/1",
+     *      path="/api/users/{id}",
      *      operationId="users_update",
      *      tags={"users"},
      *      summary="Mise à jour d'un utilisateur",
@@ -395,7 +395,7 @@ class UserController extends Controller
      */
     /**
      * @OA\Delete(
-     *      path="/api/users/3",
+     *      path="/api/users/{id}",
      *      operationId="users_delete",
      *      tags={"users"},
      *      summary="Supprimer un utlisateur",

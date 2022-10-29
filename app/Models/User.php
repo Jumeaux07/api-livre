@@ -28,6 +28,15 @@ class User extends Authenticatable
         'status',
         'score',
     ];
+    public function livres(){
+        return $this->hasMany(Livre::class);
+    }
+    public function dossiers(){
+        return $this->hasMany(Dossier::class);
+    }
+    public function matieres(){
+        return $this->belongsToMany(Matiere::class);
+    }
 
     /**
      * The attributes that should be hidden for serialization.

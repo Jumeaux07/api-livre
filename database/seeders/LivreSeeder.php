@@ -19,7 +19,8 @@ class LivreSeeder extends Seeder
             'sku' => 'HG2378',
             'nom' => 'Histoire Application',
             'points' =>300,
-            'status' =>true
+            'status' =>true,
+            'user_id' => 1
         ]);
     }
 }

@@ -6,7 +6,7 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
-class UserMatiereSeeder extends Seeder
+class MatiereUserSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,7 +15,7 @@ class UserMatiereSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('user_matieres')->insert([
+        DB::table('matiere_user')->insert([
             'user_id' => 1,
             'matiere_id' => 1
         ]);

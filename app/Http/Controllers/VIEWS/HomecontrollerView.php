@@ -14,7 +14,7 @@ class HomecontrollerView extends Controller
      */
     public function index()
     {
-        return view('admin.home');
+        return view('admin.layout.home');
     }
 
     /**

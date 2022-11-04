@@ -11,6 +11,45 @@ use Illuminate\Support\Facades\Log;
 
 class UserController extends Controller
 {
+    public function user_status_activer($id){
+        $user = User::find($id);
+        if(!$user){
+            return response()->json([
+                'message' => 'Utilisateur introuvable ou inexistant',
+                'status' => 404
+            ], 404);
+        }
+        $user->update([
+            'status' => 1
+        ]);
+        if($user){
+            return response()->json([
+                'message' => 'Utilisateur activé avec succès',
+                'user' => $user,
+                'status' => 200
+            ], 200);
+        }
+    }
+    public function user_status_desactiver($id){
+        $user = User::find($id);
+        if(!$user){
+            return response()->json([
+                'message' => 'Utilisateur introuvable ou inexistant',
+                'status' => 404
+            ], 404);
+        }
+        $user->update([
+            'status' => 0
+        ]);
+        if($user){
+            return response()->json([
+                'message' => 'Utilisateur désactivé avec succès',
+                'user' => $user,
+                'status' => 200
+            ], 200);
+        }
+    }
+
     /**
      * @OA\Post(
      *      path="/api/login_user",

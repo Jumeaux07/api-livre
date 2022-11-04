@@ -18,6 +18,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('user_status_activer/{id}',[UserController::class,'user_status_activer']);
+Route::get('user_status_desactiver/{id}',[UserController::class,'user_status_desactiver']);
 Route::post('login_user',[UserController::class,'login_user']);
 Route::resource('/users',UserController::class);
 Route::resource('/matieres',MatiereController::class);

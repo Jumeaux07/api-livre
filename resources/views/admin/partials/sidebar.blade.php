@@ -14,16 +14,9 @@
                     </a>
                     <div class="dropdown-menu animated flipInY">
                         <!-- text-->
-                        <a href="javascript:void(0)" class="dropdown-item">
-                            <i class="ti-user"></i> My Profile</a>
-                        <!-- text-->
-                        <a href="javascript:void(0)" class="dropdown-item">
-                            <i class="ti-email"></i> Inbox</a>
-                        <!-- text-->
+                        <a href="{{route('profilAdmin')}}" class="dropdown-item">
+                            <i class="ti-user"></i> Mon Profil</a>
                         <div class="dropdown-divider"></div>
-                        <!-- text-->
-                        <a href="javascript:void(0)" class="dropdown-item">
-                            <i class="ti-settings"></i> Account Setting</a>
                         <!-- text-->
                         <div class="dropdown-divider"></div>
                         <!-- text-->
@@ -46,23 +39,13 @@
                 <li class="nav-small-cap">--- PERSONAL</li>
                 <li>
                     <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
-                        <i class="icon-speedometer"></i>
-                        <span class="hide-menu">Dashboard
-                            <span class="badge rounded-pill bg-cyan ms-auto">4</span>
+                        <i class="mdi mdi-account-multiple"></i>
+                        <span class="hide-menu">Utilisateurs
                         </span>
                     </a>
                     <ul aria-expanded="false" class="collapse">
                         <li>
-                            <a href="index.html">Minimal </a>
-                        </li>
-                        <li>
-                            <a href="index2.html">Analytical</a>
-                        </li>
-                        <li>
-                            <a href="index3.html">Demographical</a>
-                        </li>
-                        <li>
-                            <a href="index4.html">Modern</a>
+                            <a href="{{route('users.index')}}">Liste des utilisateurs </a>
                         </li>
                     </ul>
                 </li>

@@ -2,7 +2,9 @@
 
 use App\Http\Controllers\AdminAuth\LoginController;
 use App\Http\Controllers\AdminAuth\RegisterController;
+use App\Http\Controllers\VIEWS\AdminControllerView;
 use App\Http\Controllers\VIEWS\HomecontrollerView;
+use App\Http\Controllers\VIEWS\UserControllerView;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,7 +27,9 @@ Route::group(['prefix' => 'admin'], function () {
   Route::get('/register', [RegisterController::class,'showRegistrationForm'])->name('register');
   Route::post('/register', [RegisterController::class,'register']);
 
-  Route::resource('home',HomecontrollerView::class);
+  Route::resource('home',HomecontrollerView::class)->middleware('admin');
+  Route::resource('users', UserControllerView::class)->middleware('admin');
+  Route::get('prodil_admin',[AdminControllerView::class,'profil_admin'])->name('profilAdmin')->middleware('admin');
 
 //   Route::post('/password/email', 'AdminAuth\ForgotPasswordController@sendResetLinkEmail')->name('password.request');
 //   Route::post('/password/reset', 'AdminAuth\ResetPasswordController@reset')->name('password.email');

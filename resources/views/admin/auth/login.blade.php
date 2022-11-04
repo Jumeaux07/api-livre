@@ -47,20 +47,20 @@
                     <a href="javascript:void(0)" class="db"><img src="{{asset('../assets/images/logo-icon.png')}}" alt="Home" /><br/><img src="../assets/images/logo-text.png" alt="Home" /></a>
                     <div class="form-group m-t-40 {{ $errors->has('email') ? ' has-error' : '' }}">
                         <div class="col-xs-12">
-                            <input class="form-control" type="text" name="email" required="" placeholder="Adresse email">
+                            <input class="form-control" type="text" name="email" required="" value="{{old('email')}}" placeholder="Adresse email">
                             @if ($errors->has('email'))
-                                    <span class="help-block">
+                                    <span class="text-danger">
                                         <strong>{{ $errors->first('email') }}</strong>
                                     </span>
                             @endif
                         </div>
                     </div>
-                    <div class="form-group {{ $errors->has('email') ? ' has-error' : '' }}">
+                    <div class="form-group {{ $errors->has('password') ? ' has-error' : '' }}">
                         <div class="col-xs-12">
                             <input class="form-control" type="password" name="password" required="" placeholder="Mot de passe">
-                            @if ($errors->has('email'))
-                                <span class="help-block">
-                                    <strong>{{ $errors->first('email') }}</strong>
+                            @if ($errors->has('password'))
+                                <span class="text-danger">
+                                    <strong>{{ $errors->first('password') }}</strong>
                                 </span>
                             @endif
                         </div>

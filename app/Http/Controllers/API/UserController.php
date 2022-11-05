@@ -405,13 +405,14 @@ class UserController extends Controller
                 'password' => $user->password,
                 'phone' => $request->phone,
                 'adresse' => $request->adresse,
+                'score' => $request->score,
                 'photo' => $photo
             ]);
             if($user){
                 Log::info("Mise à jour d'un utilisateur reussi : $request->nom - $request->prenoms - $request->email - $request->phone ".now());
                 return response()->json([
                     'message' => "Données de l'utilisateur mise à jour",
-                    'user' => $user,
+                    'user' => $request->nom,
                     'status' => 200
                 ], 200);
             }else{

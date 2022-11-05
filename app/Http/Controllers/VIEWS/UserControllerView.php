@@ -36,7 +36,7 @@ class UserControllerView extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.layout.users.create_user');
     }
 
     /**

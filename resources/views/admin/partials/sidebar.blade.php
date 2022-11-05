@@ -5,11 +5,11 @@
         <div class="user-profile">
             <div class="user-pro-body">
                 <div>
-                    <img src="../assets/images/users/2.jpg" alt="user-img" class="img-circle">
+                    <img src="{{asset('assets/images/users/2.jpg')}}" alt="user-img" class="img-circle">
                 </div>
                 <div class="dropdown">
                     <a href="javascript:void(0)" class="dropdown-toggle u-dropdown link hide-menu" data-bs-toggle="dropdown" role="button" aria-haspopup="true"
-                        aria-expanded="false">{{Auth::guard('admin')->user()->name}}
+                        aria-expanded="false">{{Auth::guard('admin')->user()->nom}}
                         <span class="caret"></span>
                     </a>
                     <div class="dropdown-menu animated flipInY">
@@ -36,7 +36,7 @@
         <!-- Sidebar navigation-->
         <nav class="sidebar-nav">
             <ul id="sidebarnav">
-                <li class="nav-small-cap">--- PERSONAL</li>
+                <li class="nav-small-cap">-----PERSONAL-------</li>
                 <li>
                     <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
                         <i class="mdi mdi-account-multiple"></i>
@@ -46,6 +46,9 @@
                     <ul aria-expanded="false" class="collapse">
                         <li>
                             <a href="{{route('users.index')}}">Liste des utilisateurs </a>
+                        </li>
+                        <li>
+                            <a href="{{route('users.create')}}">Ajouter un utlisateur</a>
                         </li>
                     </ul>
                 </li>

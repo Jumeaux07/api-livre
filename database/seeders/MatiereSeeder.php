@@ -16,7 +16,8 @@ class MatiereSeeder extends Seeder
     public function run()
     {
         DB::table('matieres')->insert([
-            'designation' => 'Français'
+            'designation' => 'Français',
+            'status' => true
         ]);
     }
 }

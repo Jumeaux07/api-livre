@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('matieres', function (Blueprint $table) {
             $table->id();
             $table->string('designation');
+            $table->boolean('status');
             $table->timestamps();
         });
     }

@@ -10,6 +10,47 @@ use Illuminate\Support\Facades\Log;
 
 class MatiereController extends Controller
 {
+    public function matiere_status_activer($id){
+        $matiere = Matiere::find($id);
+        if(!$matiere){
+            return response()->json([
+                'message' => 'Matiere introuvable ou inexistante',
+                'status' => 404
+            ], 404);
+        }
+        $matiere->update([
+            'status' => true
+        ]);
+        if($matiere){
+            return response()->json([
+                'message' => 'Matiere activée avec succès',
+                'matiere' => $matiere,
+                'status' => 200
+            ], 200);
+        }
+
+    }
+    public function matiere_status_desactiver($id){
+        $matiere = Matiere::find($id);
+        if(!$matiere){
+            return response()->json([
+                'message' => 'Matiere introuvable ou inexistante',
+                'status' => 404
+            ], 404);
+        }
+        $matiere->update([
+            'status' => false
+        ]);
+        if($matiere){
+            return response()->json([
+                'message' => 'Matiere desactivée avec succès',
+                'matiere' => $matiere,
+                'status' => 200
+            ], 200);
+        }
+
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -97,7 +138,8 @@ class MatiereController extends Controller
                 'designation' => 'required'
             ]);
             $matiere = Matiere::create([
-                'designation' => $request->designation
+                'designation' => $request->designation,
+                'status' => true
             ]);
             if($matiere){
                 Log::info("Création d'une matière reussi: $request->designation ".now());

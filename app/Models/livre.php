@@ -2,8 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\User;
+use App\Models\Matiere;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Livre extends Model
 {
@@ -13,9 +15,13 @@ class Livre extends Model
         'nom',
         'points',
         'status',
-        'user_id'
+        'user_id',
+        'matiere_id',
     ];
     public function user(){
         return $this->belongsTo(User::class);
+    }
+    public function matiere(){
+        return $this->belongsTo(Matiere::class);
     }
 }

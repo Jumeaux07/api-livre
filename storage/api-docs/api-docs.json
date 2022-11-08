@@ -175,6 +175,9 @@
                                     },
                                     "user_id": {
                                         "type": "integer"
+                                    },
+                                    "matiere_id": {
+                                        "type": "integer"
                                     }
                                 },
                                 "type": "object",
@@ -182,7 +185,8 @@
                                     "sku": "Meth473",
                                     "nom": "Go For English",
                                     "points": 400,
-                                    "user_id": 1
+                                    "user_id": 1,
+                                    "matiere_id": 1
                                 }
                             }
                         }
@@ -240,7 +244,7 @@
                                     "user_id": {
                                         "type": "integer"
                                     },
-                                    "points": {
+                                    "matiere_id": {
                                         "type": "integer"
                                     }
                                 },
@@ -249,7 +253,8 @@
                                     "sku": "Meth473",
                                     "nom": "Go  English",
                                     "points": 400,
-                                    "user_id": 2
+                                    "user_id": 2,
+                                    "matiere_id": 1
                                 }
                             }
                         }

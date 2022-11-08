@@ -1,8 +1,6 @@
 @extends('admin.partials.index')
 @section('content')
-                <!-- ============================================================== -->
                 <!-- Bread crumb and right sidebar toggle -->
-                <!-- ============================================================== -->
                 <div class="row page-titles">
                     <div class="col-md-5 align-self-center">
                         <h4 class="text-themecolor">UTILISATEURS</h4>
@@ -18,12 +16,8 @@
                         </div>
                     </div>
                 </div>
-                <!-- ============================================================== -->
                 <!-- End Bread crumb and right sidebar toggle -->
-                <!-- ============================================================== -->
-                <!-- ============================================================== -->
                 <!-- Start Page Content -->
-                <!-- ============================================================== -->
                 <div class="row">
                     <div class="col-12">
                         <div class="card">
@@ -38,7 +32,7 @@
                                 <div class="col-md-4">
                                     <div class="card">
                                         <div class="card-body">
-                                            <!-- sample modal content -->
+                                            <!-- sample modal detail user -->
                                             <div id="user_detail" class="modal" tabindex="-1" role="dialog" aria-labelledby="vcenter" aria-hidden="true">
                                                 <div class="modal-dialog modal-dialog-centered">
                                                     <div class="modal-content modal-lg">
@@ -80,6 +74,8 @@
                                                 </div>
                                                 <!-- /.modal-dialog -->
                                             </div>
+                                            <!--End sample modal detail user -->
+                                            <!-- sample modal edit user -->
                                             <div id="user_edit" class="modal" tabindex="-1" role="dialog" aria-labelledby="vcenter" aria-hidden="true">
                                                 <div class="modal-dialog modal-dialog-centered modal-xl">
                                                     <div class="modal-content">
@@ -170,9 +166,11 @@
                                                 </div>
                                                 <!-- /.modal-dialog -->
                                             </div>
+                                            <!-- End modal edit user -->
                                         </div>
                                     </div>
                                 </div>
+                                <!-- statistic of account user -->
                                 <div class="row m-t-5">
                                     <div class="col-md-6 col-lg-3 col-xlg-3">
                                         <div class="card">
@@ -199,8 +197,10 @@
                                         </div>
                                     </div>
                                 </div>
+                                <!--End statistic of account user -->
+                                <!-- List user-->
                                 <div class="table-responsive m-t-40">
-                                    <table id="user_list"
+                                    <table id="table_btn"
                                         class="display nowrap table table-hover table-striped border"
                                         cellspacing="0" width="100%">
                                         <thead>

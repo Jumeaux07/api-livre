@@ -36,12 +36,11 @@
         <!-- Sidebar navigation-->
         <nav class="sidebar-nav">
             <ul id="sidebarnav">
-                <li class="nav-small-cap">-----PERSONAL-------</li>
+                <li class="nav-small-cap"><h3> ------MENU-----</h3></li>
                 <li>
                     <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
                         <i class="mdi mdi-account-multiple"></i>
-                        <span class="hide-menu">Utilisateurs
-                        </span>
+                        <span class="hide-menu">Utilisateurs</span>
                     </a>
                     <ul aria-expanded="false" class="collapse">
                         <li>
@@ -49,6 +48,20 @@
                         </li>
                         <li>
                             <a href="{{route('users.create')}}">Ajouter un utlisateur</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+                        <i class="mdi mdi-book-multiple"></i>
+                        <span class="hide-menu">Matieres</span>
+                    </a>
+                    <ul aria-expanded="false" class="collapse">
+                        <li>
+                            <a href="{{route('matieres.index')}}">Liste des matieres </a>
+                        </li>
+                        <li>
+                            <a href="{{route('matieres.create')}}">Ajouter une matiere</a>
                         </li>
                     </ul>
                 </li>

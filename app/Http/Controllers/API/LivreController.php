@@ -78,7 +78,11 @@ class LivreController extends Controller
      *                     property="user_id",
      *                     type="integer"
      *                 ),
-     *                 example = {"sku": "Meth473","nom": "Go For English","points": 400,"user_id":1}
+     *                 @OA\Property(
+     *                     property="matiere_id",
+     *                     type="integer"
+     *                 ),
+     *                 example = {"sku": "Meth473","nom": "Go For English","points": 400,"user_id":1, "matiere_id":1}
      *             )
      *         )
      *
@@ -109,14 +113,16 @@ class LivreController extends Controller
                 'sku' => 'required',
                 'nom' => 'required',
                 'points' => 'required',
-                'user_id' => 'required'
+                'user_id' => 'required',
+                'matiere_id' => 'required',
             ]);
             $livre = Livre::create([
                 'sku' => $request->sku,
                 'nom' => $request->nom,
                 'points' => $request->points,
                 'status' => true,
-                'user_id' => $request->user_id
+                'user_id' => $request->user_id,
+                'matiere_id' => $request->matiere_id,
             ]);
             if($livre){
                 Log::info("Création d'un livre reussi: $request->sku - $request->nom - $request->points ".now());
@@ -215,10 +221,10 @@ class LivreController extends Controller
      *                     type="integer"
      *                 ),
      *                 @OA\Property(
-     *                     property="points",
+     *                     property="matiere_id",
      *                     type="integer"
      *                 ),
-     *                 example = {"sku": "Meth473","nom": "Go  English","points": 400, "user_id":2}
+     *                 example = {"sku": "Meth473","nom": "Go  English","points": 400, "user_id":2, "matiere_id":1}
      *             )
      *         )
      *

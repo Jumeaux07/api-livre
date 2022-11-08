@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminAuth\LoginController;
 use App\Http\Controllers\AdminAuth\RegisterController;
 use App\Http\Controllers\VIEWS\AdminControllerView;
 use App\Http\Controllers\VIEWS\HomecontrollerView;
+use App\Http\Controllers\VIEWS\MatiereControllerView;
 use App\Http\Controllers\VIEWS\UserControllerView;
 use Illuminate\Support\Facades\Route;
 
@@ -29,6 +30,7 @@ Route::group(['prefix' => 'admin'], function () {
 
   Route::resource('home',HomecontrollerView::class)->middleware('admin');
   Route::resource('users', UserControllerView::class)->middleware('admin');
+  Route::resource('matieres', MatiereControllerView::class)->middleware('admin');
   Route::get('prodil_admin',[AdminControllerView::class,'profil_admin'])->name('profilAdmin')->middleware('admin');
 
 //   Route::post('/password/email', 'AdminAuth\ForgotPasswordController@sendResetLinkEmail')->name('password.request');

@@ -3,8 +3,8 @@
 use App\Http\Controllers\API\DossierController;
 use App\Http\Controllers\API\LivreController;
 use App\Http\Controllers\API\MatiereController;
+use App\Http\Controllers\API\MatiereUserController;
 use App\Http\Controllers\API\UserController;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,3 +27,4 @@ Route::resource('/users',UserController::class);
 Route::resource('/matieres',MatiereController::class);
 Route::resource('/dossiers',DossierController::class);
 Route::resource('/livres', LivreController::class);
+Route::resource('matiere_user', MatiereUserController::class);

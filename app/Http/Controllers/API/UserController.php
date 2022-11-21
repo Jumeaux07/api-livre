@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
+use App\Models\Matiere;
+use App\Models\MatiereUser;
 use App\Models\User;
 use Exception;
 use Illuminate\Http\Request;
@@ -236,6 +238,7 @@ class UserController extends Controller
                 'email' => 'required|email|unique:users,email',
                 'phone' => 'required',
                 'password' =>'required|confirmed',
+                'matieres' => 'required|array'
             ]);
             if($request->photo != null){
                 $photo = $this->uploadImageApi($request->photo);
@@ -253,6 +256,8 @@ class UserController extends Controller
                 'status' => 2, //0 = "déactivé" 1 = "activé" 2 = "en attente"
                 'score' => 0
             ]);
+            $matiere_users = $request->matieres;
+            $user->matieres()->attach($matiere_users);
             if($user){
                 Log::info("Un utilisateur s'est inscrit: $request->nom - $request->prenoms - $request->email - $request->phone ".now());
                 return response()->json([
@@ -294,7 +299,8 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        $user = User::where('id',$id)->with('livres','dossiers','matieres')->first();
+        $user = User::where('id',$id)->with('livres','dossiers')->first();
+        $matieres = Matiere::all();
         if(!$user){
             return response()->json([
                 'message' => "Utilisateur non trouvé ou inexistant",
@@ -303,6 +309,7 @@ class UserController extends Controller
         }else{
             return response()->json([
                 'user' => $user,
+                'matieres' => $matieres,
                 'status' => 200
             ], 200);
         }

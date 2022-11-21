@@ -15,7 +15,7 @@ class Matiere extends Model
         'status',
     ];
     public function users(){
-        return $this->belongsToMany(User::class);
+        return $this->belongsToMany(User::class,'matiere_user');
     }
     public function livres(){
         return $this->hasMany(Livre::class);

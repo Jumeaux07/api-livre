@@ -19,5 +19,9 @@ class MatiereUserSeeder extends Seeder
             'user_id' => 1,
             'matiere_id' => 1
         ]);
+        DB::table('matiere_user')->insert([
+            'user_id' => 1,
+            'matiere_id' => 2
+        ]);
     }
 }

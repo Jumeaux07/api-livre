@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Matiere;
 use Illuminate\Support\Facades\Hash;
 
 class UserControllerView extends Controller
@@ -18,11 +19,13 @@ class UserControllerView extends Controller
     public function index()
     {
         $users = User::all();
+        $matieres = Matiere::all();
         $user_desactive = User::where('status',0)->count();
         $user_attente = User::where('status',2)->count();
         $user_active = User::where('status',1)->count();
         return view('admin.layout.users.user_list',[
             'users' => $users,
+            'matieres' => $matieres,
             'user_active' => $user_active,
             'user_desactive' => $user_desactive,
             'user_attente' => $user_attente,
@@ -36,7 +39,10 @@ class UserControllerView extends Controller
      */
     public function create()
     {
-        return view('admin.layout.users.create_user');
+        $matieres = Matiere::all();
+        return view('admin.layout.users.create_user',[
+            'matieres' => $matieres,
+        ]);
     }
 
     /**
@@ -50,11 +56,14 @@ class UserControllerView extends Controller
         $validate =  $this->validate($request,[
             'nom' => 'required',
             'prenoms' => 'required',
+            'matieres' => 'required|array',
             'email' => 'required|email|unique:users,email',
             'phone' => 'required',
             'adresse' => 'required',
-            'password' => 'required|confirmed'
+            'password' => 'required|confirmed',
         ]);
+
+        $matiere_users =$request->matieres;
         if(!$validate){
             redirect()->route('users.index')->withErrors([]);
         }
@@ -70,6 +79,7 @@ class UserControllerView extends Controller
             'password' => Hash::make($request->password),
             'remember_token' => Str::random(10),
         ]);
+        $user->matieres()->attach($matiere_users);
         if($user){
             session()->flash('msg','Utilisateur ajouter avec succès'); // creation de variable pour le SweetAlert
             return redirect()->route('users.index'); // Redirection

@@ -41,7 +41,7 @@
                                             {{ csrf_field() }}
                                             @method('POST')
                                             <div class="row">
-                                                <div class="col-md-6">
+                                                <div class="col-md-4">
                                                     <div class="form-group">
                                                         <label for="exampleInputuname">Nom</label>
                                                         <div class="input-group mb-3 {{$errors->has('nom')? 'has-error':''}} ">
@@ -50,7 +50,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-6">
+                                                <div class="col-md-4">
                                                     <div class="form-group">
                                                         <label for="exampleInputuname">Prénoms</label>
                                                         <div class="input-group mb-3 {{$errors->has('prenoms') ? 'has-error' :''}} ">
@@ -58,6 +58,16 @@
                                                             <input type="text" name="prenoms" class="form-control" value="{{old('prenoms')}}" placeholder="Prénoms" aria-label="Username" aria-describedby="basic-addon1">
                                                         </div>
                                                     </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <h5 class="">Matieres</h5>
+                                                    <select class="select2 matieres select2-multiple {{$errors->has('matieres') ? 'has-error' :''}}" id="" name="matieres[]" style="width: 100%" multiple="multiple" data-placeholder="Choose">
+                                                        <optgroup label="">
+                                                            @foreach ($matieres as $matiere)
+                                                            <option value="{{$matiere->id}}">{{$matiere->designation}}</option>
+                                                            @endforeach
+                                                        </optgroup>
+                                                    </select>
                                                 </div>
                                             </div>
                                             <div class="row">
@@ -109,8 +119,8 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <button type="submit" class="btn btn-lg btn-success waves-effect waves-light m-r-10 text-white">Valider</button>
-                                            <button type="reset" class="btn btn-lg btn-danger waves-effect waves-light">Restaurer</button>
+                                            <button type="submit" onclick="view();" class="btn btn-lg btn-success waves-effect waves-light m-r-10 text-white">Valider</button>
+                                            <button type="reset"  class="btn btn-lg btn-danger waves-effect waves-light">Restaurer</button>
                                         </form>
                                     </div>
                                 </div>

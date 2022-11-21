@@ -19,5 +19,9 @@ class MatiereSeeder extends Seeder
             'designation' => 'Français',
             'status' => true
         ]);
+        DB::table('matieres')->insert([
+            'designation' => 'Anglais',
+            'status' => true
+        ]);
     }
 }

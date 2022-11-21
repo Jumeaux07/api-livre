@@ -35,7 +35,7 @@ class User extends Authenticatable
         return $this->hasMany(Dossier::class);
     }
     public function matieres(){
-        return $this->belongsToMany(Matiere::class);
+        return $this->belongsToMany(Matiere::class,'matiere_user');
     }
 
     /**

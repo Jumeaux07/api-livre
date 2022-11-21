@@ -60,9 +60,6 @@
                         <li>
                             <a href="{{route('matieres.index')}}">Liste des matieres </a>
                         </li>
-                        <li>
-                            <a href="{{route('matieres.create')}}">Ajouter une matiere</a>
-                        </li>
                     </ul>
                 </li>
                 <li>

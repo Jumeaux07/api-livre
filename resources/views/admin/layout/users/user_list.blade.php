@@ -29,6 +29,16 @@
                             <div class="card-body">
                                 <h4 class="card-title">Tableau</h4>
                                 <h6 class="card-subtitle"> Exporter les données vers, CSV, Excel, PDF & Print</h6>
+                                <div class="col-md-6">
+                                    <h5 class="">Matieres</h5>
+                                    <select class="select3 select2-multiple {{$errors->has('matieres') ? 'has-error' :''}}" id="" name="matieres[]" style="width: 100%" multiple="multiple" data-placeholder="Choose">
+                                        <optgroup label="">
+                                            @foreach ($matieres as $matiere)
+                                            <option value="{{$matiere->id}}">{{$matiere->designation}}</option>
+                                            @endforeach
+                                        </optgroup>
+                                    </select>
+                                </div>
                                 <div class="col-md-4">
                                     <div class="card">
                                         <div class="card-body">
@@ -114,6 +124,26 @@
                                                                                         <div class="input-group mb-3" {{$errors->has('phone') ? 'has-error' : ''}} >
                                                                                                 <span class="input-group-text" id="basic-addon1"><i class="ti-mobile"></i></span>
                                                                                             <input type="text" id="phone" name="phone" value="{{old('phone')}}" class="form-control international-inputmask" id="international-mask" placeholder="Telephone" aria-label="Username" aria-describedby="basic-addon1">
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="row">
+                                                                                <div class="col-md-6">
+                                                                                    <h5 class="">Matieres</h5>
+                                                                                    <select class="select3 select2-multiple {{$errors->has('matieres') ? 'has-error' :''}}" id="" name="matieres[]" style="width: 100%" multiple="multiple" data-placeholder="Choose">
+                                                                                        <optgroup label="">
+                                                                                            @foreach ($matieres as $matiere)
+                                                                                            <option value="{{$matiere->id}}">{{$matiere->designation}}</option>
+                                                                                            @endforeach
+                                                                                        </optgroup>
+                                                                                    </select>
+                                                                                </div>
+                                                                                <div class="col-md-6">
+                                                                                    <div class="form-group">
+                                                                                        <label for="exampleInputuname">Matiere</label>
+                                                                                        <div class="input-group mb-3 {{$errors->has('prenoms') ? 'has-error' :''}} ">
+                                                                                            <span class="label label-table label-danger">ytyfyiiuihih</span>
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
@@ -208,6 +238,7 @@
                                                 <th></th>
                                                 <th>Nom</th>
                                                 <th>Prenoms</th>
+                                                <th>Matiere(s)</th>
                                                 <th>Email</th>
                                                 <th>Phone</th>
                                                 <th>Adresse</th>
@@ -221,6 +252,7 @@
                                                 <th></th>
                                                 <th>Nom</th>
                                                 <th>Prenoms</th>
+                                                <th>Matiere(s)</th>
                                                 <th>Email</th>
                                                 <th>Phone</th>
                                                 <th>Adresse</th>
@@ -235,6 +267,11 @@
                                                     <th></th>
                                                     <th>{{$user->nom}}</th>
                                                     <th>{{$user->prenoms}}</th>
+                                                    <th>
+                                                    @foreach ($user->matieres as $matiere)
+                                                    <span class="label label-table label-info">{{$matiere->designation}}</span>
+                                                    @endforeach
+                                                    </th>
                                                     <th>{{$user->email}}</th>
                                                     <th>{{$user->phone}}</th>
                                                     <th>{{$user->adresse}}</th>
